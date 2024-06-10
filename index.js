@@ -253,7 +253,7 @@ function onChatChanged()
 
 	for (let i = 0; i < 10; i++)
 	{
-		if (es["action" + i + "_enabled"])
+		if (extension_settings[extensionName]["action" + i + "_enabled"])
 		{
 			addAction(
                 "action" + i,
