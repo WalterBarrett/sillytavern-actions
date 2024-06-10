@@ -208,10 +208,13 @@ document.body.addEventListener('keyup', (event) => {
 async function loadSettings() {
     //Create the settings if they don't exist
     let oldSettings = {};
-    Object.assign(oldSettings, extension_settings[extensionName] || {});
+    if (extension_settings[extensionName] === undefined) {
+        extension_settings[extensionName] = {};
+    }
+    Object.assign(oldSettings, extension_settings[extensionName]);
     Object.assign(extension_settings[extensionName], defaultSettings, oldSettings);
 
-    console.log("extension_settings["+extensionName+"]:", extension_settings[extensionName]);
+    //console.log("extension_settings["+extensionName+"]:", extension_settings[extensionName]);
 
     // Updating settings in the UI
     for (let i = 0; i < 10; i++) {
@@ -229,7 +232,7 @@ async function loadSettings() {
 function onMessageSent(messageIndex)
 {
     const message = getContext().chat[messageIndex];
-    console.log(message);
+    //console.log(message);
     if (currentAction !== undefined)
     {
         message.mes = substituteParams(currentAction.template).replace(/{{msg}}/gi, message.mes);
@@ -245,7 +248,6 @@ function onMessageSent(messageIndex)
 
 function onChatChanged()
 {
-	const es = extension_settings[extensionName];
     picker.innerHTML = '';
     actions = [];
 
@@ -253,7 +255,14 @@ function onChatChanged()
 	{
 		if (es["action" + i + "_enabled"])
 		{
-			addAction("action" + i, es["action" + i + "_name"], es["action" + i + "_icon"], es["action" + i + "_useprompt"], es["action" + i + "_template"], es["action" + i + "_role"]);
+			addAction(
+                "action" + i,
+                extension_settings[extensionName]["action" + i + "_name"],
+                extension_settings[extensionName]["action" + i + "_icon"],
+                extension_settings[extensionName]["action" + i + "_useprompt"],
+                extension_settings[extensionName]["action" + i + "_template"],
+                extension_settings[extensionName]["action" + i + "_role"]
+            );
 		}
 	}
 
