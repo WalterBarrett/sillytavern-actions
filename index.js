@@ -39,7 +39,7 @@ const defaultSettings = {
     action2_name: "Story",
     action2_icon: "fa-scroll",
     action2_template: "{{msg}}",
-    action2_role: "System",
+    action2_role: "User",
 
     action3_enabled: false,
     action3_useprompt: true,
