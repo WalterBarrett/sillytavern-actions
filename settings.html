@@ -1,0 +1,186 @@
+<!-- You might want to add additional HTML elements to ST.
+    It's good practice to separate it out from your code -->
+<div class="actions-extension-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>Actions</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div>
+				<label><small>Action Prompt</small></label>
+				<textarea id="actions_extension_prompt" class="text_pole textarea_compact autoSetHeight" rows="1"></textarea>
+			</div>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action0_enabled"> Action #0 Enabled
+			</label>
+            <div><label for="actions_extension_action0_name">Name:</label> <input id="actions_extension_action0_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action0_icon">Icon:</label> <input id="actions_extension_action0_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action0_role">Role:</label>
+                <select id="actions_extension_action0_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action0_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action0_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action1_enabled"> Action #1 Enabled
+			</label>
+            <div><label for="actions_extension_action1_name">Name:</label> <input id="actions_extension_action1_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action1_icon">Icon:</label> <input id="actions_extension_action1_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action1_role">Role:</label>
+                <select id="actions_extension_action1_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action1_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action1_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action2_enabled"> Action #2 Enabled
+			</label>
+            <div><label for="actions_extension_action2_name">Name:</label> <input id="actions_extension_action2_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action2_icon">Icon:</label> <input id="actions_extension_action2_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action2_role">Role:</label>
+                <select id="actions_extension_action2_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action2_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action2_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action3_enabled"> Action #3 Enabled
+			</label>
+            <div><label for="actions_extension_action3_name">Name:</label> <input id="actions_extension_action3_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action3_icon">Icon:</label> <input id="actions_extension_action3_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action3_role">Role:</label>
+                <select id="actions_extension_action3_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action3_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action3_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action4_enabled"> Action #4 Enabled
+			</label>
+            <div><label for="actions_extension_action4_name">Name:</label> <input id="actions_extension_action4_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action4_icon">Icon:</label> <input id="actions_extension_action4_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action4_role">Role:</label>
+                <select id="actions_extension_action4_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action4_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action4_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action5_enabled"> Action #5 Enabled
+			</label>
+            <div><label for="actions_extension_action5_name">Name:</label> <input id="actions_extension_action5_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action5_icon">Icon:</label> <input id="actions_extension_action5_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action5_role">Role:</label>
+                <select id="actions_extension_action5_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action5_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action5_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action6_enabled"> Action #6 Enabled
+			</label>
+            <div><label for="actions_extension_action6_name">Name:</label> <input id="actions_extension_action6_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action6_icon">Icon:</label> <input id="actions_extension_action6_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action6_role">Role:</label>
+                <select id="actions_extension_action6_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action6_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action6_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action7_enabled"> Action #7 Enabled
+			</label>
+            <div><label for="actions_extension_action7_name">Name:</label> <input id="actions_extension_action7_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action7_icon">Icon:</label> <input id="actions_extension_action7_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action7_role">Role:</label>
+                <select id="actions_extension_action7_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action7_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action7_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action8_enabled"> Action #8 Enabled
+			</label>
+            <div><label for="actions_extension_action8_name">Name:</label> <input id="actions_extension_action8_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action8_icon">Icon:</label> <input id="actions_extension_action8_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action8_role">Role:</label>
+                <select id="actions_extension_action8_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action8_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action8_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+
+            <hr class="sysHR" />
+            <label class="flex-container actions_extension_action_settings">
+				<input type="checkbox" id="actions_extension_action9_enabled"> Action #9 Enabled
+			</label>
+            <div><label for="actions_extension_action9_name">Name:</label> <input id="actions_extension_action9_name" class="text_pole textarea_compact widthNatural" placeholder="Action Name"></input></div>
+            <div><label for="actions_extension_action9_icon">Icon:</label> <input id="actions_extension_action9_icon" class="text_pole textarea_compact widthNatural" placeholder="fa-icons"></input></div>
+            <div class="flex-container actions_extension_action_settings">
+                <label for="actions_extension_action9_role">Role:</label>
+                <select id="actions_extension_action9_role">
+                    <option value="System">System</option>
+                    <option value="User" selected="selected">User</option>
+                    <option value="Assistant">Assistant</option>
+                </select>
+            </div>
+            <label class="flex-container actions_extension_action_settings"><input type="checkbox" id="actions_extension_action9_useprompt"> Use Prompt?</label>
+			<textarea id="actions_extension_action9_template" class="text_pole textarea_compact autoSetHeight" rows="6" placeholder="{{msg}}"></textarea>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,13 @@
-/* All style elements for your extension go here */
+#actions-button
+{
+    background-color: var(--SmartThemeBlurTintColor);
+}
+.selectedAction
+{
+    font-weight: bold;
+}
+.actions_extension_action_settings input.text_pole,
+.actions_extension_action_settings select
+{
+    width:auto;
+}

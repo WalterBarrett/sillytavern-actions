@@ -1,33 +1,31 @@
-# SillyTavern Extension Example
+# SillyTavern Actions Extension
 
-*Provide a brief description of how your extension works, what problem it aims to solve.*
+This extension brings AI Dungeon-style actions support to SillyTavern.
 
 ## Features
 
-*Describe some of the main selling points of your extension.*
+Includes the following actions by default:
+
+* Do
+* Say
+* Story
+
+You can add additional actions using the settings menu. Up to 10 actions are supported.
 
 ## Installation and Usage
 
 ### Installation
 
-*In most cases, this should just be using ST's inbuilt extension installer.* 
+Install using ST's inbuilt extension installer.
 
 ### Usage
 
-*Explain how to use this extension.*
-
-## Prerequisites
-
-*Specify the version of ST necessary here.*
+Click on the Actions button in the bottom-left corner to select an action. Then simply type like normal.
 
 ## Support and Contributions
 
-*Where should someone ask for support?*
-
-*Consider including your own contact info for help/questions.*
-
-*How can people help add to this extension?*
+Check the Actions Extension thread in the [#📦・extensions forum](https://discord.com/channels/1100685673633153084/1135319829788770375) of the SillyTavern Discord server.
 
 ## License
 
-*Be cool, use an open source license.*
+AGPLv3
