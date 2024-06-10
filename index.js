@@ -20,6 +20,8 @@ const extensionFolderPath = `scripts/extensions/third-party/${extensionName}`;
 const defaultSettings = {
     selected_action: "story",
     action_prompt: "[Enter Adventure Mode. Narrate the story based on {{user}}'s dialogue and actions after \">\". Describe the surroundings in vivid detail. Be detailed, creative, verbose, and proactive. Move the story forward by introducing fantasy elements and interesting characters.]",
+    allow_impersonation: false,
+
     action0_enabled: true,
     action0_useprompt: true,
     action0_name: "Do",
@@ -114,7 +116,7 @@ const picker = document.createElement('div');
 picker.id = 'actions-button';
 picker.classList.add('options-content');
 
-function addAction(id, name, icon, usePrompt, template, role)
+function addAction(id, name, icon, usePrompt, template, role, impersonated)
 {
     name = name || id;
     icon = icon || "fa-icons";
@@ -139,6 +141,7 @@ function addAction(id, name, icon, usePrompt, template, role)
         usePrompt: usePrompt,
         template: template,
         role: role,
+        impersonated: impersonated,
     });
     return pickerAction;
 }
@@ -226,6 +229,7 @@ async function loadSettings() {
         $("#actions_extension_action" + i + "_role").val(extension_settings[extensionName]["action" + i + "_role"]).trigger("input");
     }
 
+    $("#actions_extension_allow_impersonation").val(extension_settings[extensionName].allow_impersonation).trigger("input");
     $("#actions_extension_prompt").val(extension_settings[extensionName].action_prompt).trigger("input");
 }
 
@@ -242,6 +246,10 @@ function onMessageSent(messageIndex)
             case "user":      message.is_user = true;  message.is_system = false; break;
             case "assistant": message.is_user = false; message.is_system = false; break;
             case "system":    message.is_user = false; message.is_system = true;  break;
+        }
+        if (currentAction.impersonated !== undefined) {
+            message.name = currentAction.impersonated.name;
+            message.force_avatar = currentAction.impersonated.force_avatar;
         }
     }
 }
@@ -261,10 +269,44 @@ function onChatChanged()
                 extension_settings[extensionName]["action" + i + "_icon"],
                 extension_settings[extensionName]["action" + i + "_useprompt"],
                 extension_settings[extensionName]["action" + i + "_template"],
-                extension_settings[extensionName]["action" + i + "_role"]
+                extension_settings[extensionName]["action" + i + "_role"],
+                undefined // impersonated
             );
 		}
 	}
+
+    if (extension_settings[extensionName].allow_impersonation) {
+        const context = getContext();
+        //console.log(context);
+        let characters = [];
+        if (context.groupId != undefined) {
+            const curGroup = context.groups.find(x => x.id == context.groupId);
+            //console.log(curGroup);
+            context.characters.forEach((item) => {
+                if (curGroup.members.indexOf(item.avatar) > -1) {
+                    characters.push(item);
+                }
+            })
+            // How do you do this?
+        } else if (context.characterId != undefined) {
+            characters = [ context.characters[context.characterId] ];
+        }
+        //console.log("characters: ", characters);
+
+        characters.forEach((item, index) => {
+            if (!item.is_system) {
+                addAction(
+                    "impersonate" + index,
+                    "Impersonate " + item.name,
+                    "fa-user-secret", //item.force_avatar,
+                    false, // use prompt
+                    "{{msg}}",
+                    "Assistant",
+                    item
+                );
+            }
+        });
+    }
 
     updateSelectedAction();
 }
@@ -289,6 +331,7 @@ jQuery(async () => {
         $("#actions_extension_action" + i + "_role").on("input", () => { extension_settings[extensionName]["action" + i + "_role"] = $('#actions_extension_action' + i + '_role').val(); onChatChanged(); saveSettingsDebounced(); });
     }
 
+    $("#actions_extension_allow_impersonation").on("input", () => { extension_settings[extensionName].allow_impersonation = Boolean($('#actions_extension_allow_impersonation').prop("checked")); onChatChanged(); saveSettingsDebounced(); });
     $("#actions_extension_prompt").on("input", () => { extension_settings[extensionName].action_prompt = $('#actions_extension_prompt').val(); saveSettingsDebounced(); });
 
     // Load settings when starting things up (if you have any)
