@@ -149,15 +149,22 @@ function addAction(id, name, icon, usePrompt, template, role, impersonated)
 let currentAction = nullAction;
 
 function updateSelectedAction() {
+    let storyAction = undefined;
     selectActionButton.classList = [ 'fa-solid' ];
     context.setExtensionPrompt('action_prompt', '');
     currentAction = nullAction;
     actions.forEach ((item) => {
         item.link.classList.remove("selectedAction");
+        if (item.name.toLowerCase() == "story") {
+            storyAction = item;
+        }
         if (item.name.toLowerCase() == extension_settings[extensionName].selected_action) {
             currentAction = item;
         }
     });
+    if (currentAction == nullAction && storyAction !== undefined) {
+        currentAction = storyAction;
+    }
 
     if (currentAction.icon == "") {
         selectActionButton.classList.add("fa-icons");
